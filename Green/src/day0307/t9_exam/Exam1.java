@@ -16,6 +16,6 @@ public class Exam1 {
 			}
 		}
 		System.out.println("3의 배수의 합 : " + tot);
-
+		System.out.println();
 	}		
 }
