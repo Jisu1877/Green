@@ -13,7 +13,7 @@ public class PhoneRun3 {
 			if(no < 1 || no > 3) {
 				System.out.println("제조사 번호를 확인하세요.");
 			}else {
-				break;1
+				break;
 			}
 		}
 		System.out.print("사용자 이름을 입력하세요>> ");

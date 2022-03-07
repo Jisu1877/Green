@@ -1,6 +1,6 @@
 package day0222.t1;
 
-public class Test1 {
+public class Test1_jinsu {
 //	클래스 명은 첫글자 대문자!
 	public static void main(String[] args) {
 //		가상머신(JVM)이 main함수를 읽고 실행시키기 때문에 main함수는 실행시키고자 하는 클래스에선 필수이다.

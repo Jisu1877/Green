@@ -2,7 +2,7 @@ package day0222.t1;
 
 // 전위연산자 : ++i, --i
 // 후위연산자 : i++, i--
-public class Test8 {
+public class Test8_yunsan {
 	public static void main(String[] args) {
 		// i++ 와 ++i는 i=i+1 과 같고, 또 i+=1과도 같다.
 		
