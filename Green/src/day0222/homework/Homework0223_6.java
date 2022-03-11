@@ -40,12 +40,12 @@ public class Homework0223_6 {
 		boolean over;
 		
 		while(choice) {
-			System.out.println("성명을 입력하세요?");
+			System.out.print("성명을 입력하세요 : ");
 			name = sc.next();
-			System.out.println("부서명을 입력하세요?");
+			System.out.print("부서명을 입력하세요 : ");
 			department = sc.next();
 			while(true) {
-				System.out.println("실제 근무일수를 입력하세요?");
+				System.out.print("실제 근무일수를 입력하세요 : ");
 				time = sc.nextInt();
 				if(time > 28) {
 					System.out.println("2월달은 28일까지만 근무하실수 있습니다.");
@@ -53,8 +53,9 @@ public class Homework0223_6 {
 					break;
 				}
 			}
-			overtime = 28 - time;
-			if(overtime >= 1 && overtime <=8) {
+			overtime = 20 - time;
+			if(overtime <= 0) {
+				overtime = overtime * -1;
 				money = 300000 +(overtime * 100000);
 				over = true;
 			}
@@ -62,22 +63,62 @@ public class Homework0223_6 {
 				money = 300000 -(overtime*50000);
 				over = false;
 			}
+			
 			switch(department) {
 				case "i":
 				case "I":
 					if(over == true) {
-					System.out.println("인사과에 근무하시는 "+name+"님은 "+overtime+"일 초과 근무하셔서 급여는 원입니다.");
+						System.out.println("인사과에 근무하시는 "+name+"님은 "+overtime+"일 초과 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					else if(over == false) {
+						System.out.println("인사과에 근무하시는 "+name+"님은 "+overtime+"일 미달 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					break;
+				case "c":
+				case "C":
+					if(over == true) {
+						System.out.println("총무과에 근무하시는 "+name+"님은 "+overtime+"일 초과 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					else if(over == false) {
+						System.out.println("총무과에 근무하시는 "+name+"님은 "+overtime+"일 미달 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					break;
+				case "j":
+				case "J":
+					if(over == true) {
+						System.out.println("자재과에 근무하시는 "+name+"님은 "+overtime+"일 초과 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					else if(over == false) {
+						System.out.println("자재과에 근무하시는 "+name+"님은 "+overtime+"일 미달 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					break;
+				case "y":
+				case "Y":
+					if(over == true) {
+						System.out.println("영업과에 근무하시는 "+name+"님은 "+overtime+"일 초과 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					else if(over == false) {
+						System.out.println("영업과에 근무하시는 "+name+"님은 "+overtime+"일 미달 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					break;
+				default:
+					if(over == true) {
+						System.out.println("홍보과에 근무하시는 "+name+"님은 "+overtime+"일 초과 근무하셔서 급여는 "+money+"원입니다.");
+					}
+					else if(over == false) {
+						System.out.println("홍보과에 근무하시는 "+name+"님은 "+overtime+"일 미달 근무하셔서 급여는 "+money+"원입니다.");
 					}
 					
 			}
 			while(true) {
-				System.out.print("작업을 계속하시겠습니까?(Y/N)");
+				System.out.print("\n작업을 계속하시겠습니까?(Y/N)");
 				answer = sc.next().charAt(0);
 				if(answer == 'Y' || answer == 'y') {
-					choice = true;
+					break;
 				}else if(answer == 'N' || answer == 'n') {
-					choice = false;
 					System.out.println("종료합니다. 감사합니다.");
+					choice = false;
+					break;
 				}else {
 					System.out.println("잘못입력하셨습니다.");
 					continue;

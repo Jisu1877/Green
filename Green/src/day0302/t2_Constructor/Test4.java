@@ -4,7 +4,7 @@ public class Test4 {
 	String model;
 	String color;
 	int maxSpeed;
-	
+
 	public Test4(String model) {
 		this.model = model;
 		this.color = "은색";
