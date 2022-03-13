@@ -8,6 +8,7 @@ public class Test1 {
 			
 			Class clazz = Sample.class; 		//Class타입으로 변수를 만들어서 Sample의 정보를 불러온다.
 			System.out.println("이름 : " + clazz.getName());
+			System.out.println("패키지명 : " + clazz.getPackage());  
 //			System.out.println("패키지명 : " + clazz.getPackageName());  //왜 에러??? 모르겠다..
 			System.out.println("타입명 : " + clazz.getTypeName());
 			System.out.println("Simple명 : " + clazz.getSimpleName());

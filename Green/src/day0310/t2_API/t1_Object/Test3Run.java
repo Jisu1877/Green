@@ -2,7 +2,7 @@ package day0310.t2_API.t1_Object;
 
 public class Test3Run {
 	public static void main(String[] args) {
-		Test3 test3 = new Test3("홍길동", 25, true, "서울");
+		Test3_DTO test3 = new Test3_DTO("홍길동", 25, true, "서울");
 		
 		System.out.println("성명 : " + test3.getName());
 		System.out.println("나이 : " + test3.getAge());
