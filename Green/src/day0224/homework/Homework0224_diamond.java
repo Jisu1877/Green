@@ -25,7 +25,7 @@ import java.util.Scanner;
 
     *
  */
-public class Homework0224_1 {
+public class Homework0224_diamond {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
@@ -48,7 +48,7 @@ public class Homework0224_1 {
 			System.out.println();
 		}
 
-		for(int i=1; i<=num/2; i++) {				// num/2을 한 이유는 예를들어 9를 입력받았을 때, 위에 삼각형에는 4개 행을 입력하고자 한것이다.
+		for(int i=1; i<=num/2; i++) {				// num/2을 한 이유는 예를들어 9를 입력받았을 때, 아래에 삼각형에는 4개 행을 입력하고자 한것이다.
 			for(int j=1; j<=i; j++) {				// t3_star 패키지의 Test6처럼 하나씩 늘어가는 공백을 단순히 찍어준 것.
 				System.out.print(" ");
 			}

@@ -1,5 +1,7 @@
 package day0310.homework;
 
+import java.util.Arrays;
+
 public class Homework1 {
 	public static void main(String[] args) {
 		String blank = " ";

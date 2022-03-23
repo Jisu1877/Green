@@ -58,7 +58,7 @@ public class Homework3 {
 			lastNum = choiceNum[choice-1];
 			
 			System.out.println("선택하신 전화번호는 " + firstNum + "-" + middleNum + "-" + lastNum  + "입니다.");
-			System.out.println();
+			System.out.println(); 
 			
 			
 			System.out.print("다시 전화번호를 만들어 드릴까요?(y/n) >>");
