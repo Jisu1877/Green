@@ -35,6 +35,7 @@ public class NuriManageLoginFind extends JFrame{
 	
 	public NuriManageLoginFind() {
 		super("Nuri 관리자 로그인");
+		getContentPane().setBackground(new Color(255, 255, 255));
 		setResizable(false);
 		setTitle("Nuri 관리자 아이디·비밀번호 찾기");
 		setBounds(100, 100, 811, 474);
@@ -44,13 +45,13 @@ public class NuriManageLoginFind extends JFrame{
 		getContentPane().setLayout(null);
 		
 		JButton btnDispose = new JButton("취소");
-		btnDispose.setBounds(346, 390, 91, 29);
+		btnDispose.setBounds(353, 390, 91, 29);
 		getContentPane().add(btnDispose);
 		btnDispose.setFont(new Font("굴림", Font.BOLD, 17));
 		btnDispose.setBackground(Color.WHITE);
 		
 		JPanel pn1 = new JPanel();
-		pn1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pn1.setBackground(SystemColor.inactiveCaptionBorder);
 		pn1.setBounds(12, 10, 384, 359);
 		getContentPane().add(pn1);
 		pn1.setLayout(null);
@@ -135,6 +136,7 @@ public class NuriManageLoginFind extends JFrame{
 		panel.add(txtNum3Id);
 		
 		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setBackground(SystemColor.inactiveCaptionBorder);
 		panel_1_1.setLayout(null);
 		panel_1_1.setBounds(33, 281, 318, 50);
 		pn1.add(panel_1_1);
@@ -146,7 +148,7 @@ public class NuriManageLoginFind extends JFrame{
 		panel_1_1.add(btnFind);
 		
 		JPanel pn1_1 = new JPanel();
-		pn1_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pn1_1.setBackground(SystemColor.inactiveCaptionBorder);
 		pn1_1.setLayout(null);
 		pn1_1.setBounds(397, 10, 384, 359);
 		getContentPane().add(pn1_1);
@@ -243,6 +245,7 @@ public class NuriManageLoginFind extends JFrame{
 		pn2.add(txtNum3Pwd);
 		
 		JPanel panel_1_1_1 = new JPanel();
+		panel_1_1_1.setBackground(SystemColor.inactiveCaptionBorder);
 		panel_1_1_1.setLayout(null);
 		panel_1_1_1.setBounds(33, 281, 318, 50);
 		pn1_1.add(panel_1_1_1);

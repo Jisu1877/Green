@@ -21,6 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
 
 public class NuriManagement extends JFrame {
 	private JTable tblContent;
@@ -39,30 +40,32 @@ public class NuriManagement extends JFrame {
 
 	public NuriManagement() {
 		super("관리자 계정 관리");
-		setSize(1035, 738);
-		setLocationRelativeTo(null);
 		setResizable(false);
+		getContentPane().setBackground(new Color(255, 255, 255));
+		setSize(1035, 575);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
 		JPanel pn1 = new JPanel();
-		pn1.setBounds(303, 10, 414, 70);
+		pn1.setBackground(new Color(255, 255, 255));
+		pn1.setBounds(338, 10, 345, 56);
 		getContentPane().add(pn1);
 		pn1.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("관리자 계정 관리");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 23));
-		lblNewLabel.setBounds(102, 27, 209, 41);
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 27));
+		lblNewLabel.setBounds(54, 17, 237, 41);
 		pn1.add(lblNewLabel);
 
 		JLabel lblNewLabel_2 = new JLabel("누리도서관");
 		lblNewLabel_2.setFont(new Font("굴림", Font.BOLD, 17));
-		lblNewLabel_2.setBounds(162, 10, 89, 29);
+		lblNewLabel_2.setBounds(128, 0, 89, 29);
 		pn1.add(lblNewLabel_2);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(58, 171, 903, 421);
+		panel.setBounds(58, 171, 903, 261);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 
@@ -90,12 +93,13 @@ public class NuriManagement extends JFrame {
 		// JTable을 JScrollPane에 올려준다.
 		JScrollPane scrollPane = new JScrollPane(tblContent);
 		scrollPane.setViewportBorder(new LineBorder(new Color(0, 0, 0)));
-		scrollPane.setBounds(0, 0, 904, 421);
+		scrollPane.setBounds(0, 0, 904, 262);
 
 		// JScrollPane을 패널에 올려준다.
 		panel.add(scrollPane);
 
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(255, 255, 255));
 		panel_2.setBounds(610, 57, 351, 111);
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
@@ -131,24 +135,25 @@ public class NuriManagement extends JFrame {
 		panel_2.add(btnUpdateEnd);
 
 		JButton btnDispose = new JButton("홈으로");
-		btnDispose.setBackground(UIManager.getColor("Button.darkShadow"));
+		btnDispose.setBackground(new Color(255, 255, 255));
 		btnDispose.setFont(new Font("굴림", Font.PLAIN, 15));
-		btnDispose.setBounds(453, 641, 94, 33);
+		btnDispose.setBounds(452, 483, 94, 33);
 		getContentPane().add(btnDispose);
 		
 		JLabel lblNewLabel_3 = new JLabel("※계정 수정은 '수정'버튼을 누른 후 수정을 원하는 정보를 클릭 / 수정을 마친뒤, '수정완료' 버튼 클릭※");
 		lblNewLabel_3.setFont(new Font("굴림", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(58, 602, 741, 31);
+		lblNewLabel_3.setBounds(58, 442, 741, 31);
 		getContentPane().add(lblNewLabel_3);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBackground(new Color(176, 196, 222));
-		panel_1.setBounds(419, 122, 183, 39);
+		panel_1.setBounds(438, 122, 144, 39);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("계정목록");
-		lblNewLabel_1.setBounds(30, 10, 123, 25);
+		lblNewLabel_1.setBounds(10, 10, 123, 25);
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 22));
 		panel_1.add(lblNewLabel_1);
@@ -189,59 +194,63 @@ public class NuriManagement extends JFrame {
 								vo = dao.valueFind(fieldName, selectedvalue);
 								mIdx = vo.getmIdx();
 								input = JOptionPane.showInputDialog("수정할 성명을 입력하세요.");
-								run = true;
-								while (run) {
-									if (!Pattern.matches("^[가-힣a-zA-z]*$", input)) {
-										JOptionPane.showMessageDialog(null, "관리자 이름은 한글 / 영어(대·소문자)만 입력 가능합니다.", "관리자 이름 입력오류", JOptionPane.ERROR_MESSAGE);
-										input = JOptionPane.showInputDialog("수정할 성명을 입력하세요.");
+								if (input != null) {
+									run = true;
+									while (run) {
+										if (!Pattern.matches("^[가-힣a-zA-z]*$", input)) {
+											JOptionPane.showMessageDialog(null, "관리자 이름은 한글 / 영어(대·소문자)만 입력 가능합니다.", "관리자 이름 입력오류", JOptionPane.ERROR_MESSAGE);
+											input = JOptionPane.showInputDialog("수정할 성명을 입력하세요.");
+										}
+										
+										else  {
+											run = false;
+										}
 									}
-									
-									else  {
-										run = false;
+									dao.updateAccount(fieldName, input, mIdx);
+									vo2 = dao.updateAccountCheck(fieldName, input);
+									if (vo2.getmIdx() == 0) {
+										JOptionPane.showMessageDialog(null, "성명 수정 오류.", "수정오류", JOptionPane.ERROR_MESSAGE);
+									} else {
+										JOptionPane.showMessageDialog(null, "성명 수정 완료.");
+										vData = dao.getList();
+										model.setDataVector(vData, title);
 									}
-								}
-								dao.updateAccount(fieldName, input, mIdx);
-								vo2 = dao.updateAccountCheck(fieldName, input);
-								if (vo2.getmIdx() == 0) {
-									JOptionPane.showMessageDialog(null, "성명 수정 오류.", "수정오류", JOptionPane.ERROR_MESSAGE);
-								} else {
-									JOptionPane.showMessageDialog(null, "성명 수정 완료.");
-									vData = dao.getList();
-									model.setDataVector(vData, title);
 								}
 
 								break;
 							case 2:
-								input = null;
-								fieldName = "mMid";
-								selectedvalue = String.valueOf(model.getValueAt(row, 2));
-								vo = dao.valueFind(fieldName, selectedvalue);
-								mIdx = vo.getmIdx();
-								input = JOptionPane.showInputDialog("수정할 아이디를 입력하세요.");
-								run = true;
-								while(run) {
-									NuriManageVO vo3 = dao.overLap(input);
-									if (!Pattern.matches("^[a-zA-z0-9]*$", input)) {
-										JOptionPane.showMessageDialog(null, "아이디는 영어(대·소문자) / 숫자만 입력 가능합니다.", "관리자 아이디 입력오류", JOptionPane.ERROR_MESSAGE);
-										input = JOptionPane.showInputDialog("수정할 아이디를 입력하세요.");
-									}
-									else if(vo3.getmIdx() != 0) {
-										JOptionPane.showMessageDialog(null, "중복된 아이디입니다.", "아이디 수정 오류", JOptionPane.ERROR_MESSAGE);
-										input = JOptionPane.showInputDialog("수정할 아이디를 입력하세요.");
-									}
-									else {
-										run = false;
-									}
-								}
-								dao.updateAccount(fieldName, input, mIdx);
-								vo2 = dao.updateAccountCheck(fieldName, input);
-								if (vo2.getmIdx() == 0) {
-									JOptionPane.showMessageDialog(null, "아이디 수정 오류.", "수정오류", JOptionPane.ERROR_MESSAGE);
-								} else {
-									JOptionPane.showMessageDialog(null, "아이디 수정 완료.");
-									vData = dao.getList();
-									model.setDataVector(vData, title);
-								}
+								JOptionPane.showMessageDialog(null, "아이디는 수정할 수 없습니다.", "아이디 수정불가",
+										JOptionPane.WARNING_MESSAGE);
+//								input = null;
+//								fieldName = "mMid";
+//								selectedvalue = String.valueOf(model.getValueAt(row, 2));
+//								vo = dao.valueFind(fieldName, selectedvalue);
+//								mIdx = vo.getmIdx();
+//								input = JOptionPane.showInputDialog("수정할 아이디를 입력하세요.");
+//								run = true;
+//								while(run) {
+//									NuriManageVO vo3 = dao.overLap(input);
+//									if (!Pattern.matches("^[a-zA-z0-9]*$", input)) {
+//										JOptionPane.showMessageDialog(null, "아이디는 영어(대·소문자) / 숫자만 입력 가능합니다.", "관리자 아이디 입력오류", JOptionPane.ERROR_MESSAGE);
+//										input = JOptionPane.showInputDialog("수정할 아이디를 입력하세요.");
+//									}
+//									else if(vo3.getmIdx() != 0) {
+//										JOptionPane.showMessageDialog(null, "중복된 아이디입니다.", "아이디 수정 오류", JOptionPane.ERROR_MESSAGE);
+//										input = JOptionPane.showInputDialog("수정할 아이디를 입력하세요.");
+//									}
+//									else {
+//										run = false;
+//									}
+//								}
+//								dao.updateAccount(fieldName, input, mIdx);
+//								vo2 = dao.updateAccountCheck(fieldName, input);
+//								if (vo2.getmIdx() == 0) {
+//									JOptionPane.showMessageDialog(null, "아이디 수정 오류.", "수정오류", JOptionPane.ERROR_MESSAGE);
+//								} else {
+//									JOptionPane.showMessageDialog(null, "아이디 수정 완료.");
+//									vData = dao.getList();
+//									model.setDataVector(vData, title);
+//								}
 								break;
 							case 3:
 								JOptionPane.showMessageDialog(null, "비밀번호는 수정할 수 없습니다.\n비밀번호 찾기를 진행하세요.", "비밀번호 수정불가",
@@ -255,29 +264,31 @@ public class NuriManagement extends JFrame {
 								mIdx = vo.getmIdx();
 								input = JOptionPane.showInputDialog("수정할 휴대폰번호를 하이픈(-)을 넣어 입력하세요.\n Ex)010-0000-0000");
 								run = true;
-								while(run) {
-									NuriManageVO vo3 = dao.numCheck(input);
-									if (!Pattern.matches("^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$", input)) {
-										JOptionPane.showMessageDialog(null, "휴대폰번호 형식에 맞지 않습니다.", "휴대폰 번호 입력오류", JOptionPane.ERROR_MESSAGE);
-										input = JOptionPane.showInputDialog("수정할 휴대폰번호를 하이픈(-)을 넣어 입력하세요.\n Ex)010-0000-0000");
+								if(input != null) {
+									while(run) {
+										NuriManageVO vo3 = dao.numCheck(input);
+										if (!Pattern.matches("^01([0|1|6|7|8|9])-([0-9]{3,4})-([0-9]{4})$", input)) {
+											JOptionPane.showMessageDialog(null, "휴대폰번호 형식에 맞지 않습니다.", "휴대폰 번호 입력오류", JOptionPane.ERROR_MESSAGE);
+											input = JOptionPane.showInputDialog("수정할 휴대폰번호를 하이픈(-)을 넣어 입력하세요.\n Ex)010-0000-0000");
+										}
+										else if(vo3.getmIdx() != 0) {
+											JOptionPane.showMessageDialog(null, "중복된 휴대폰 번호입니다.", "휴대폰번호 수정 오류", JOptionPane.ERROR_MESSAGE);
+											input = JOptionPane.showInputDialog("수정할 휴대폰번호를 하이픈(-)을 넣어 입력하세요.\n Ex)010-0000-0000");
+										}
+										else {
+											run = false;
+										}
 									}
-									else if(vo3.getmIdx() != 0) {
-										JOptionPane.showMessageDialog(null, "중복된 휴대폰 번호입니다.", "휴대폰번호 수정 오류", JOptionPane.ERROR_MESSAGE);
-										input = JOptionPane.showInputDialog("수정할 휴대폰번호를 하이픈(-)을 넣어 입력하세요.\n Ex)010-0000-0000");
+									//수정하기
+									dao.updateAccount(fieldName, input, mIdx);
+									vo2 = dao.updateAccountCheck(fieldName, input);
+									if (vo2.getmIdx() == 0) {
+										JOptionPane.showMessageDialog(null, "휴대폰번호 수정 오류.", "수정오류", JOptionPane.ERROR_MESSAGE);
+									} else {
+										JOptionPane.showMessageDialog(null, "휴대폰번호 수정 완료.");
+										vData = dao.getList();
+										model.setDataVector(vData, title);
 									}
-									else {
-										run = false;
-									}
-								}
-								//수정하기
-								dao.updateAccount(fieldName, input, mIdx);
-								vo2 = dao.updateAccountCheck(fieldName, input);
-								if (vo2.getmIdx() == 0) {
-									JOptionPane.showMessageDialog(null, "휴대폰번호 수정 오류.", "수정오류", JOptionPane.ERROR_MESSAGE);
-								} else {
-									JOptionPane.showMessageDialog(null, "휴대폰번호 수정 완료.");
-									vData = dao.getList();
-									model.setDataVector(vData, title);
 								}
 								break;
 							case 5:

@@ -13,7 +13,7 @@ public class Test1 {
 		int month = now.get(Calendar.MONTH);	//현재 월보다 항상 하나 전월로 나온다. 월이 0월부터 들어가있다.
 		int day = now.get(Calendar.DATE);
 		
-		System.out.println("오늘은 "+year+"년 "+(month+1)+"월 "+day+"일 입니다.");
+		System.out.println("오늘은 "+year+"년 "+(month+1)+"월 "+(day+7)+"일 입니다.");
 		
 		// 일 : 1 / 월 : 2 / .... / 토 : 7 //요일이 숫자로 반환된다.
 		int week = now.get(Calendar.DAY_OF_WEEK);

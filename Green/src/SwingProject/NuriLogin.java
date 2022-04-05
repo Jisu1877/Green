@@ -17,14 +17,17 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class NuriManageLogin extends JFrame{
-	private JTextField txtMid;
+public class NuriLogin extends JFrame{
+	private JTextField txtId;
 	
 	NuriDAO dao = new NuriDAO(); 
 	private JPasswordField txtPwd;
 	
-	public NuriManageLogin() {
-		super("Nuri 관리자 로그인");
+	public static String midRemember = "noLogin";
+	public static NuriCustomerVO vo;
+	
+	public NuriLogin() {
+		super("Nuri 로그인");
 		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 449, 310);
 		setLocationRelativeTo(null);
@@ -33,7 +36,7 @@ public class NuriManageLogin extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("관리자 로그인");
+		JLabel lblNewLabel_1 = new JLabel("로그인");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 23));
 		lblNewLabel_1.setBounds(119, 29, 197, 38);
@@ -60,11 +63,11 @@ public class NuriManageLogin extends JFrame{
 		lblNewLabel_2.setBounds(29, 62, 80, 32);
 		panel.add(lblNewLabel_2);
 		
-		txtMid = new JTextField();
-		txtMid.setFont(new Font("굴림", Font.PLAIN, 16));
-		txtMid.setColumns(10);
-		txtMid.setBounds(109, 20, 169, 27);
-		panel.add(txtMid);
+		txtId = new JTextField();
+		txtId.setFont(new Font("굴림", Font.PLAIN, 16));
+		txtId.setColumns(10);
+		txtId.setBounds(109, 20, 169, 27);
+		panel.add(txtId);
 		
 		txtPwd = new JPasswordField();
 		txtPwd.setBounds(109, 62, 169, 27);
@@ -75,79 +78,44 @@ public class NuriManageLogin extends JFrame{
 		panel_1.setBounds(12, 213, 411, 50);
 		getContentPane().add(panel_1);
 		
-		JButton btnLogin = new JButton("로그인");
-		btnLogin.setFont(new Font("굴림", Font.BOLD, 17));
-		btnLogin.setBackground(Color.WHITE);
-		btnLogin.setBounds(160, 0, 91, 29);
-		panel_1.add(btnLogin);
-		
-		JButton btnExit = new JButton("종료");
-		btnExit.setFont(new Font("굴림", Font.BOLD, 17));
-		btnExit.setBackground(Color.WHITE);
-		btnExit.setBounds(284, 0, 91, 29);
-		panel_1.add(btnExit);
-		
-		JButton btnFind = new JButton("ID/PW 찾기");
-		btnFind.setFont(new Font("굴림", Font.BOLD, 10));
-		btnFind.setBackground(Color.WHITE);
-		btnFind.setBounds(34, 0, 91, 29);
-		panel_1.add(btnFind);
-		
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setBackground(new Color(255, 255, 255));
 		panel_1_1.setLayout(null);
 		panel_1_1.setBounds(0, 0, 411, 50);
 		panel_1.add(panel_1_1);
 		
-		JButton btnLogin_1 = new JButton("로그인");
-		btnLogin_1.setFont(new Font("굴림", Font.BOLD, 17));
-		btnLogin_1.setBackground(Color.WHITE);
-		btnLogin_1.setBounds(160, 0, 91, 29);
-		panel_1_1.add(btnLogin_1);
+		JButton btnFind = new JButton("ID/PW 찾기");
+		btnFind.setBounds(3, 10, 91, 29);
+		panel_1_1.add(btnFind);
+		btnFind.setFont(new Font("굴림", Font.BOLD, 10));
+		btnFind.setBackground(Color.WHITE);
 		
-		JButton btnExit_1 = new JButton("종료");
-		btnExit_1.setFont(new Font("굴림", Font.BOLD, 17));
-		btnExit_1.setBackground(Color.WHITE);
-		btnExit_1.setBounds(284, 0, 91, 29);
-		panel_1_1.add(btnExit_1);
+		JButton btnLogin = new JButton("로그인");
+		btnLogin.setBounds(220, 10, 91, 29);
+		panel_1_1.add(btnLogin);
+		btnLogin.setFont(new Font("굴림", Font.BOLD, 17));
+		btnLogin.setBackground(Color.WHITE);
 		
-		JButton btnFind_1 = new JButton("ID/PW 찾기");
-		btnFind_1.setBackground(Color.WHITE);
-		btnFind_1.setBounds(34, 0, 91, 29);
-		panel_1_1.add(btnFind_1);
+		JButton btnExit = new JButton("종료");
+		btnExit.setBounds(314, 10, 91, 29);
+		panel_1_1.add(btnExit);
+		btnExit.setFont(new Font("굴림", Font.BOLD, 17));
+		btnExit.setBackground(Color.WHITE);
 		
-		
-		
+		JButton btnJoin = new JButton("회원가입");
+		btnJoin.setFont(new Font("굴림", Font.BOLD, 17));
+		btnJoin.setBackground(Color.WHITE);
+		btnJoin.setBounds(97, 10, 120, 29);
+		panel_1_1.add(btnJoin);
 		
 		setVisible(true);
 	
 		/* 메소드 영역 */
 		
-		//아이디 비밀번호 찾기 버튼
-		btnFind.addActionListener(new ActionListener() {
+		//회원가입버튼
+		btnJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new NuriManageLoginFind();
-			}
-		});
-		
-		//로그인하기 버튼
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String mMid = txtMid.getText();
-				char[] Pwd = txtPwd.getPassword();
-				String mPwd = "";
-				for(char cha : Pwd) {
-					Character.toString(cha);
-					mPwd += (mPwd.equals("")) ? "" + cha + "" : cha + "";
-				}
-				NuriManageVO vo = dao.mLogin(mMid, mPwd);
-				if(vo.getmIdx() != 0) {
-					dispose();
-					new NuriManageHome(vo);
-				}
-				else if(vo.getmIdx() == 0) {
-					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호를 잘못 입력하셨습니다. \n 입력하신 내용을 확인해주세요.");
-				}
+				JOptionPane.showMessageDialog(null, "준비중인 기능입니다.");
 			}
 		});
 		
@@ -158,8 +126,35 @@ public class NuriManageLogin extends JFrame{
 			}
 		});
 		
+		//로그인하기 버튼
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String mid = txtId.getText();
+				String pwd = txtPwd.getText();
+				vo = dao.login(mid, pwd);
+				if(vo.getcIdx() != 0) {
+					dispose();
+					midRemember = vo.getcMid();
+					new NuriHome();
+				}
+				else if(vo.getcIdx() == 0) {
+					JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호를 잘못 입력하셨습니다. \n 입력하신 내용을 확인해주세요.");
+				}
+			}
+		});
+		
+		//아이디 비밀번호 찾기 버튼
+		btnFind.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "준비중인 기능입니다.");
+			}
+		});
+		
+		
+		
+		
 		//아이디 입력 후 엔터키 치면..
-		txtMid.addKeyListener(new KeyAdapter() {
+		txtId.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -184,6 +179,6 @@ public class NuriManageLogin extends JFrame{
 //	}
 //	
 	public static void main(String[] args) {
-		new NuriManageLogin();
+		new NuriLogin();
 	}
 }

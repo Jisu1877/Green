@@ -25,6 +25,7 @@ public class NuriNewPassword extends JFrame{
 	
 	public NuriNewPassword(NuriManageVO vo) {
 		super("비밀번호 새로 입력");
+		getContentPane().setBackground(new Color(255, 255, 255));
 		setBounds(100, 100, 475, 297);
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -40,7 +41,7 @@ public class NuriNewPassword extends JFrame{
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(SystemColor.inactiveCaption);
+		panel.setBackground(SystemColor.inactiveCaptionBorder);
 		panel.setBounds(34, 77, 392, 104);
 		getContentPane().add(panel);
 		
@@ -69,6 +70,7 @@ public class NuriNewPassword extends JFrame{
 		panel.add(btnPwdCheck);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setLayout(null);
 		panel_1.setBounds(34, 191, 394, 50);
 		getContentPane().add(panel_1);

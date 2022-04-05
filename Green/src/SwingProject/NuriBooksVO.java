@@ -2,13 +2,15 @@ package SwingProject;
 
 public class NuriBooksVO {
 	private int bIdx;
-	private int isbn;
+	private String isbn;
 	private String bookName;
 	private String author;
 	private String publish;
 	private String category;
 	private String bookPosition;
 	private String rentalCheck;
+	private String image;
+	
 	
 	public int getbIdx() {
 		return bIdx;
@@ -16,10 +18,10 @@ public class NuriBooksVO {
 	public void setbIdx(int bIdx) {
 		this.bIdx = bIdx;
 	}
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 	public String getBookName() {
@@ -58,13 +60,18 @@ public class NuriBooksVO {
 	public void setRentalCheck(String rentalCheck) {
 		this.rentalCheck = rentalCheck;
 	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	@Override
 	public String toString() {
 		return "NuriBooksVO [bIdx=" + bIdx + ", isbn=" + isbn + ", bookName=" + bookName + ", author=" + author
 				+ ", publish=" + publish + ", category=" + category + ", bookPosition=" + bookPosition
-				+ ", rentalCheck=" + rentalCheck + "]";
+				+ ", rentalCheck=" + rentalCheck + ", image=" + image + "]";
 	}
-	
 	
 	
 	

@@ -42,6 +42,7 @@ public class NuriUpdateGrant extends JFrame{
 	
 	public NuriUpdateGrant(String mIdx, String mName2B, String mMid2B, String mPwd2B, String mNumberB, String mHint2B, String mHintAns2B) {
 		super("Nuri 관리자 계정 생성");
+		getContentPane().setBackground(new Color(255, 255, 255));
 		setResizable(false);
 		setBounds(100, 100, 580, 461);
 		setLocationRelativeTo(null);
@@ -161,19 +162,20 @@ public class NuriUpdateGrant extends JFrame{
 		panel.add(btnNumCheck);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 255, 255));
 		panel_1.setLayout(null);
 		panel_1.setBounds(46, 362, 478, 48);
 		getContentPane().add(panel_1);
 		
 		JButton btnDispose = new JButton("취소");
 		btnDispose.setFont(new Font("굴림", Font.BOLD, 15));
-		btnDispose.setBackground(SystemColor.activeCaption);
+		btnDispose.setBackground(new Color(255, 255, 255));
 		btnDispose.setBounds(96, 10, 91, 29);
 		panel_1.add(btnDispose);
 		
 		JButton btnCreate = new JButton("생성");
 		btnCreate.setFont(new Font("굴림", Font.BOLD, 15));
-		btnCreate.setBackground(SystemColor.activeCaption);
+		btnCreate.setBackground(new Color(255, 255, 255));
 		btnCreate.setBounds(283, 10, 91, 29);
 		panel_1.add(btnCreate);
 		
@@ -312,8 +314,8 @@ public class NuriUpdateGrant extends JFrame{
 					if(vo.getmName().equals(mName)) {
 						JOptionPane.showMessageDialog(null, "관리자 계정 생성완료.", "관리자 계정 생성완료", JOptionPane.INFORMATION_MESSAGE);
 						dispose();
-						if(NuriManagement.newCreateCheck == 1) {
-							new NuriManagement();
+						if(NuriRentalManagement.newCreateCheck == 1) {
+							new NuriRentalManagement();
 						}
 					}
 				}
