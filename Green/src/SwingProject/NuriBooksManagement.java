@@ -47,7 +47,7 @@ public class NuriBooksManagement extends JFrame {
 		setSize(1035, 808);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 
 		JPanel pn1 = new JPanel();
@@ -71,7 +71,7 @@ public class NuriBooksManagement extends JFrame {
 		panel.setBounds(58, 171, 903, 369);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		//TODO jtable 열 크기 조정하기..
+		// TODO jtable 열 크기 조정하기..
 		// 타이틀을 벡터로 처리
 		title = new Vector();
 		title.add("고유번호");
@@ -113,7 +113,7 @@ public class NuriBooksManagement extends JFrame {
 		btnNewButton_1_1_1.setBackground(new Color(238, 232, 170));
 		btnNewButton_1_1_1.setBounds(188, 25, 99, 33);
 		panel_2.add(btnNewButton_1_1_1);
-		
+
 		JButton btnDelete_1 = new JButton("대여여부 변경");
 		btnDelete_1.setFont(new Font("굴림", Font.BOLD, 15));
 		btnDelete_1.setBackground(new Color(245, 222, 179));
@@ -125,118 +125,118 @@ public class NuriBooksManagement extends JFrame {
 		btnDispose.setFont(new Font("굴림", Font.PLAIN, 15));
 		btnDispose.setBounds(463, 716, 94, 33);
 		getContentPane().add(btnDispose);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(SystemColor.inactiveCaptionBorder);
 		panel_1.setBounds(58, 555, 903, 151);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("ISBN :");
 		lblNewLabel_3.setFont(new Font("굴림", Font.BOLD, 16));
 		lblNewLabel_3.setBounds(12, 24, 68, 27);
 		panel_1.add(lblNewLabel_3);
-		
+
 		txtIsbn = new JTextField();
 		txtIsbn.setFont(new Font("굴림", Font.PLAIN, 16));
 		txtIsbn.setBounds(71, 25, 156, 27);
 		panel_1.add(txtIsbn);
 		txtIsbn.setColumns(10);
-		
+
 		JLabel lblNewLabel_3_1 = new JLabel("도서명 :");
 		lblNewLabel_3_1.setFont(new Font("굴림", Font.BOLD, 16));
 		lblNewLabel_3_1.setBounds(239, 24, 68, 27);
 		panel_1.add(lblNewLabel_3_1);
-		
+
 		txtBookName = new JTextField();
 		txtBookName.setFont(new Font("굴림", Font.PLAIN, 16));
 		txtBookName.setColumns(10);
 		txtBookName.setBounds(309, 24, 156, 27);
 		panel_1.add(txtBookName);
-		
+
 		JLabel lblNewLabel_3_1_1 = new JLabel("저자 :");
 		lblNewLabel_3_1_1.setFont(new Font("굴림", Font.BOLD, 16));
 		lblNewLabel_3_1_1.setBounds(478, 24, 68, 27);
 		panel_1.add(lblNewLabel_3_1_1);
-		
+
 		txtAuthor = new JTextField();
 		txtAuthor.setFont(new Font("굴림", Font.PLAIN, 16));
 		txtAuthor.setColumns(10);
 		txtAuthor.setBounds(530, 24, 143, 27);
 		panel_1.add(txtAuthor);
-		
+
 		JLabel lblNewLabel_3_1_1_1 = new JLabel("출판사 :");
 		lblNewLabel_3_1_1_1.setFont(new Font("굴림", Font.BOLD, 16));
 		lblNewLabel_3_1_1_1.setBounds(685, 24, 68, 27);
 		panel_1.add(lblNewLabel_3_1_1_1);
-		
+
 		txtPublish = new JTextField();
 		txtPublish.setFont(new Font("굴림", Font.PLAIN, 16));
 		txtPublish.setColumns(10);
 		txtPublish.setBounds(757, 24, 136, 27);
 		panel_1.add(txtPublish);
-		
+
 		JLabel lblNewLabel_3_1_1_1_1 = new JLabel("대분류 :");
 		lblNewLabel_3_1_1_1_1.setFont(new Font("굴림", Font.BOLD, 16));
 		lblNewLabel_3_1_1_1_1.setBounds(264, 62, 68, 27);
 		panel_1.add(lblNewLabel_3_1_1_1_1);
-		
+
 		JLabel lblNewLabel_3_1_1_1_1_1 = new JLabel("서고위치 :");
 		lblNewLabel_3_1_1_1_1_1.setFont(new Font("굴림", Font.BOLD, 16));
 		lblNewLabel_3_1_1_1_1_1.setBounds(514, 62, 90, 27);
 		panel_1.add(lblNewLabel_3_1_1_1_1_1);
-		
+
 		txtBookPosition = new JTextField();
 		txtBookPosition.setFont(new Font("굴림", Font.PLAIN, 16));
 		txtBookPosition.setColumns(10);
 		txtBookPosition.setBounds(597, 62, 156, 27);
 		panel_1.add(txtBookPosition);
-		
+
 		JButton btnInput = new JButton("도서추가");
 		btnInput.setFont(new Font("굴림", Font.BOLD, 15));
 		btnInput.setBackground(new Color(135, 206, 235));
 		btnInput.setBounds(497, 114, 109, 27);
 		panel_1.add(btnInput);
-		
+
 		JComboBox comboCategory = new JComboBox();
 		comboCategory.setFont(new Font("굴림", Font.PLAIN, 16));
-		comboCategory.setModel(new DefaultComboBoxModel(new String[] {"소설", "시/에세이", "인문", "가정/육아", "요리", "건강", "취미/실용/스포츠", "경제/경영", "자기계발", "정치/사회", "역사/문화", "종교", "잡지", "여행", "컴퓨터/IT", "청소년", "유아"}));
+		comboCategory.setModel(new DefaultComboBoxModel(new String[] { "소설", "시/에세이", "인문", "가정/육아", "요리", "건강",
+				"취미/실용/스포츠", "경제/경영", "자기계발", "정치/사회", "역사/문화", "종교", "잡지", "여행", "컴퓨터/IT", "청소년", "유아" }));
 		comboCategory.setBounds(333, 62, 156, 27);
 		panel_1.add(comboCategory);
-		
+
 		JButton btnUpdate = new JButton("도서수정");
 		btnUpdate.setFont(new Font("굴림", Font.BOLD, 15));
 		btnUpdate.setBackground(new Color(240, 230, 140));
 		btnUpdate.setBounds(131, 114, 109, 27);
 		panel_1.add(btnUpdate);
-		
+
 		JButton btnUpdateEnd = new JButton("수정완료");
 		btnUpdateEnd.setFont(new Font("굴림", Font.BOLD, 15));
 		btnUpdateEnd.setBackground(new Color(240, 230, 140));
 		btnUpdateEnd.setBounds(295, 114, 109, 27);
 		panel_1.add(btnUpdateEnd);
-		
+
 		JButton btnDelete = new JButton("도서삭제");
 		btnDelete.setFont(new Font("굴림", Font.BOLD, 15));
 		btnDelete.setBackground(new Color(135, 206, 235));
 		btnDelete.setBounds(653, 114, 109, 27);
 		panel_1.add(btnDelete);
-		
+
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(SystemColor.inactiveCaptionBorder);
 		panel_3.setBounds(415, 125, 189, 36);
 		getContentPane().add(panel_3);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("도서목록");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 19));
 		lblNewLabel_1.setBackground(new Color(176, 196, 222));
 		panel_3.add(lblNewLabel_1);
 
-
 		setVisible(true);
 
-		//도서 추가 버튼
+		// 도서 추가 버튼
 		btnInput.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String isbn = txtIsbn.getText();
@@ -245,16 +245,18 @@ public class NuriBooksManagement extends JFrame {
 				String publish = txtPublish.getText();
 				String category = comboCategory.getSelectedItem().toString();
 				String bookPosition = txtBookPosition.getText();
-				
+
 				// 이미등록했던 도서인지 확인(ISBN 중복확인)
 				NuriBooksVO vo = dao.isbnOverLap(isbn);
-				
+
 				// 유효성검사
 				if (isbn.trim().equals("")) {
 					JOptionPane.showMessageDialog(null, "ISBN을 입력하세요.", "ISBN 미입력", JOptionPane.WARNING_MESSAGE);
 					txtIsbn.requestFocus();
-				} else if(vo.getbIdx() != 0) {
-					JOptionPane.showMessageDialog(null, "이미 등록된 도서입니다. \n입력하신 ISBN의 도서명은 '"+vo.getBookName()+"'입니다.", "중복된 도서", JOptionPane.WARNING_MESSAGE);
+				} else if (vo.getbIdx() != 0) {
+					JOptionPane.showMessageDialog(null,
+							"이미 등록된 도서입니다. \n입력하신 ISBN의 도서명은 '" + vo.getBookName() + "'입니다.", "중복된 도서",
+							JOptionPane.WARNING_MESSAGE);
 				} else if (bookName.trim().equals("")) {
 					JOptionPane.showMessageDialog(null, "도서명을 입력하세요.", "도서명 미입력", JOptionPane.WARNING_MESSAGE);
 					txtIsbn.requestFocus();
@@ -265,10 +267,10 @@ public class NuriBooksManagement extends JFrame {
 					JOptionPane.showMessageDialog(null, "출판사를 입력하세요.", "출판사 미입력", JOptionPane.WARNING_MESSAGE);
 					txtIsbn.requestFocus();
 				} else if (bookPosition.trim().equals("")) {
-					JOptionPane.showMessageDialog(null, "서고위치를 입력하세요.\n배정 전 서고는 '미지정'으로 입력해주세요.", "서고위치 미입력", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "서고위치를 입력하세요.\n배정 전 서고는 '미지정'으로 입력해주세요.", "서고위치 미입력",
+							JOptionPane.WARNING_MESSAGE);
 					txtIsbn.requestFocus();
-				}
-				else {
+				} else {
 					// 도서추가하기
 					dao.inputBook(isbn, bookName, Author, publish, category, bookPosition);
 					JOptionPane.showMessageDialog(null, "도서추가가 완료되었습니다.", "도서추가 완료", JOptionPane.INFORMATION_MESSAGE);
@@ -282,13 +284,14 @@ public class NuriBooksManagement extends JFrame {
 				}
 			}
 		});
-		
-		//도서 수정버튼
+
+		// 도서 수정버튼
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switch(tblContent.getSelectedRowCount()) {
+				switch (tblContent.getSelectedRowCount()) {
 					case 0:
-						JOptionPane.showMessageDialog(null, "수정하고자 하는 도서를 선택해주세요.", "도서 수정 안내", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "수정하고자 하는 도서를 선택해주세요.", "도서 수정 안내",
+								JOptionPane.INFORMATION_MESSAGE);
 						break;
 					case 1:
 						JOptionPane.showMessageDialog(null, "※하단에서 수정 내용을 변경 후 '수정완료'버튼을 클릭.※");
@@ -299,31 +302,34 @@ public class NuriBooksManagement extends JFrame {
 						txtPublish.setText(String.valueOf(model.getValueAt(tblContent.getSelectedRow(), 4)));
 						comboCategory.setSelectedItem(String.valueOf(model.getValueAt(tblContent.getSelectedRow(), 5)));
 						txtBookPosition.setText(String.valueOf(model.getValueAt(tblContent.getSelectedRow(), 6)));
-						
+
 						break;
-					default :
+					default:
 						JOptionPane.showMessageDialog(null, "하나의 도서만 선택해주세요.", "도서 수정 오류", JOptionPane.WARNING_MESSAGE);
 						break;
 				}
 			}
 		});
-		
-		//도서 수정 완료 버튼
+
+		// 도서 수정 완료 버튼
 		btnUpdateEnd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//DefaultTableModel에서 선택한 컬럼의 값들을 가져오기
-				//String bIdx = String.valueOf(model.getValueAt(tblContent.getSelectedRow(), 0));
+				// DefaultTableModel에서 선택한 컬럼의 값들을 가져오기
+				// String bIdx = String.valueOf(model.getValueAt(tblContent.getSelectedRow(),
+				// 0));
 				String isbn = txtIsbn.getText();
 				String bookName = txtBookName.getText();
 				String author = txtAuthor.getText();
 				String publish = txtPublish.getText();
 				String category = comboCategory.getSelectedItem().toString();
 				String bookPosition = txtBookPosition.getText();
-				//도서수정
+				// 도서수정
 				dao.NuriBooksUpdate(bIdx2, isbn, bookName, author, publish, category, bookPosition);
-				//도서수정 확인
+				// 도서수정 확인
 				NuriBooksVO vo = dao.NuriBooksChack(bIdx2);
-				if(vo.getIsbn().equals(isbn) && vo.getBookName().equals(bookName) && vo.getAuthor().equals(author) && vo.getPublish().equals(publish) && vo.getCategory().equals(category) && vo.getBookPosition().equals(bookPosition)) {
+				if (vo.getIsbn().equals(isbn) && vo.getBookName().equals(bookName) && vo.getAuthor().equals(author)
+						&& vo.getPublish().equals(publish) && vo.getCategory().equals(category)
+						&& vo.getBookPosition().equals(bookPosition)) {
 					JOptionPane.showMessageDialog(null, "도서수정이 완료되었습니다.");
 					vData = dao.getBooksList();
 					model.setDataVector(vData, title);
@@ -332,64 +338,72 @@ public class NuriBooksManagement extends JFrame {
 					txtAuthor.setText("");
 					txtPublish.setText("");
 					txtBookPosition.setText("");
-				}else {
+				} else {
 					JOptionPane.showMessageDialog(null, "도서수정 과정에 오류가 발생했습니다.", "도서수정 오류", JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		});
 
-		//대여여부 변경
+		// 대여여부 변경
 		btnDelete_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				switch(tblContent.getSelectedRowCount()) {
-					case 0: 
-						JOptionPane.showMessageDialog(null, "변경을 원하는 도서를 선택 후 클릭하세요.", "대여여부 수정 안내", JOptionPane.INFORMATION_MESSAGE);
+				switch (tblContent.getSelectedRowCount()) {
+					case 0:
+						JOptionPane.showMessageDialog(null, "변경을 원하는 도서를 선택 후 클릭하세요.", "대여여부 수정 안내",
+								JOptionPane.INFORMATION_MESSAGE);
 						break;
 					case 1:
 						String ibx3 = String.valueOf(model.getValueAt(tblContent.getSelectedRow(), 0));
 						String rental = String.valueOf(model.getValueAt(tblContent.getSelectedRow(), 7));
 						NuriBooksVO vo = dao.NuriBooksChack(ibx3);
-						if(rental.equals("N")) {
-							int result = JOptionPane.showConfirmDialog(null, "선택하신 '"+vo.getBookName()+"' 도서를 \n'대여(Y)'상태로 변경하시겠습니까?", "대여여부 변경확인", JOptionPane.YES_NO_OPTION);
-							if(result == JOptionPane.YES_OPTION) {
+						if (rental.equals("N")) {
+							int result = JOptionPane.showConfirmDialog(null,
+									"선택하신 '" + vo.getBookName() + "' 도서를 \n'대여(Y)'상태로 변경하시겠습니까?", "대여여부 변경확인",
+									JOptionPane.YES_NO_OPTION);
+							if (result == JOptionPane.YES_OPTION) {
 								rental = "Y";
-								//대여상태 변경
+								// 대여상태 변경
 								dao.rentalUpdate(ibx3, rental);
-								//대여상태 변경확인
+								// 대여상태 변경확인
 								NuriBooksVO vo2 = dao.reanalUpdateCheck(ibx3, rental);
-								if(vo2.getbIdx() != 0) {
+								if (vo2.getbIdx() != 0) {
 									vData = dao.getBooksList();
 									model.setDataVector(vData, title);
-								}else {
-									JOptionPane.showMessageDialog(null, "대여상태 변경 오류.", "대여상태 변경 오류", JOptionPane.WARNING_MESSAGE);
+								} else {
+									JOptionPane.showMessageDialog(null, "대여상태 변경 오류.", "대여상태 변경 오류",
+											JOptionPane.WARNING_MESSAGE);
 								}
 							}
-						}else if(rental.equals("Y")) {
-							int result = JOptionPane.showConfirmDialog(null, "선택하신 '"+vo.getBookName()+"' 도서를 \n'미대여(N)'상태로 변경하시겠습니까?", "대여여부 변경확인", JOptionPane.YES_NO_OPTION);
-							if(result == JOptionPane.YES_OPTION) {
+						} else if (rental.equals("Y")) {
+							int result = JOptionPane.showConfirmDialog(null,
+									"선택하신 '" + vo.getBookName() + "' 도서를 \n'미대여(N)'상태로 변경하시겠습니까?", "대여여부 변경확인",
+									JOptionPane.YES_NO_OPTION);
+							if (result == JOptionPane.YES_OPTION) {
 								rental = "N";
-								//대여상태 변경
+								// 대여상태 변경
 								dao.rentalUpdate(ibx3, rental);
-								//대여상태 변경확인
+								// 대여상태 변경확인
 								NuriBooksVO vo2 = dao.reanalUpdateCheck(ibx3, rental);
-								if(vo2.getbIdx() != 0) {
+								if (vo2.getbIdx() != 0) {
 									vData = dao.getBooksList();
 									model.setDataVector(vData, title);
-								}else {
-									JOptionPane.showMessageDialog(null, "대여상태 변경 오류.", "대여상태 변경 오류", JOptionPane.WARNING_MESSAGE);
+								} else {
+									JOptionPane.showMessageDialog(null, "대여상태 변경 오류.", "대여상태 변경 오류",
+											JOptionPane.WARNING_MESSAGE);
 								}
 							}
 						}
 						break;
-					default :
-						JOptionPane.showMessageDialog(null, "하나의 도서만 선택해주세요.", "대여여부 수정 오류", JOptionPane.WARNING_MESSAGE);
+					default:
+						JOptionPane.showMessageDialog(null, "하나의 도서만 선택해주세요.", "대여여부 수정 오류",
+								JOptionPane.WARNING_MESSAGE);
 						break;
-						
+
 				}
 			}
 		});
-		
-		//도서삭제 버튼
+
+		// 도서삭제 버튼
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (tblContent.getSelectedRowCount() == 1) {
@@ -415,7 +429,7 @@ public class NuriBooksManagement extends JFrame {
 				}
 			}
 		});
-		
+
 		// 새로고침 버튼
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

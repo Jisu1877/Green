@@ -398,7 +398,7 @@ public class NuriDAO {
 		return vData;
 		
 	}
-	// 대여 목록 전체 조회
+	// 대여 상세목록 전체 조회
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getRentalList() {
 		Vector vData = new Vector();
@@ -425,6 +425,30 @@ public class NuriDAO {
 			rsClose();
 		}
 		return vData;
+	}
+	// 대여 목록 전체 조회
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Vector getRental() {
+		Vector vData2 = new Vector();
+		try {
+			sql = "select * from rental";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Vector vo2 = new Vector();
+				vo2.add(rs.getInt("rIdx"));
+				vo2.add(rs.getInt("cIdx"));
+				vo2.add(rs.getString("rdate"));
+				
+				vData2.add(vo2);
+			}
+		}catch (SQLException e) {
+			System.out.println("SQL 에러 : " + e.getMessage());
+		}finally {
+			rsClose();
+		}
+		return vData2;
 	}
 	
 	//도서 조건검색
@@ -518,7 +542,7 @@ public class NuriDAO {
 	//도서추가하기
 	public void inputBook(String isbn, String bookName, String author, String publish, String category,String bookPosition) {
 		try {
-			sql = "insert into books values(default, ?, ?, ?, ?, ?, ?, default)";
+			sql = "insert into books values(default, ?, ?, ?, ?, ?, ?, default, default)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, isbn);
 			pstmt.setString(2, bookName);
@@ -778,6 +802,8 @@ public class NuriDAO {
 			}
 			return vo;
 		}
+
+
 
 
 		

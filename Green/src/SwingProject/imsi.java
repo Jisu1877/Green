@@ -17,6 +17,7 @@
 //		JTable jTable = new JTable(rowData, columnNames);
 //		JScrollPane jScollPane = new JScrollPane(jTable);
 //		public JTableExam()
+//
 //		{
 //			jFrame.add(jScollPane);
 //			jFrame.setSize(400, 300);

@@ -62,7 +62,7 @@ delete from manage where mIdx = 2;
 create table rental(
 	rIdx int not null auto_increment primary key,
 	cIdx int not null,
-	rDate datetime default now()
+	rdate datetime default now()
 );
 
 desc rental;
@@ -116,14 +116,14 @@ alter table customer add column bookCnt int default '5';
 
 
 insert into customer values(default, '이지수', 'ljs1877', password('1234'), '010-9039-1877', '청주시 흥덕구', default, default, default, default, default);
-insert into customer values(default, '홍길동', 'hong123', password('1234'), '010-1111-2222', '청주시 흥덕구', default, default, default, default);
-insert into customer values(default, '김말숙', 'kim09', password('1234'), '010-3333-5555', '청주시 서원구', default, default, default, default);
-insert into customer values(default, '테스트', 'test', password('1234'), '010-3333-9999', '청주시 상당구', default, default, default, default);
+insert into customer values(default, '홍길동', 'hong', password('1234'), '010-1111-2222', '청주시 흥덕구', default, default, default, default, default);
+insert into customer values(default, '김말숙', 'kim', password('1234'), '010-3333-5555', '청주시 서원구', default, default, default, default, default);
+insert into customer values(default, '테스트', 'test', password('1234'), '010-3333-9999', '청주시 상당구', default, default, default, default, default);
 
 
 select * from customer;
 
-delete from customer;
+delete from customer where cIdx = 2;
 
 select count(*) from rentalList where rIdx = 18 and cIdx = 1;
 

@@ -131,7 +131,7 @@ public class NuriManageHome extends JFrame {
 		btnRoot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (vo.getmMid().equals("root")) {
-					new NuriRentalManagement();
+					new NuriManagement();
 				} else {
 					// 최종관리자만 접근 가능 메시지 출력
 					JOptionPane.showMessageDialog(null, "최종관리자만 접근할 수 있습니다.", "경고", JOptionPane.WARNING_MESSAGE);
